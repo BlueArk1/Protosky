@@ -14,36 +14,39 @@
 :root {
   --text: black;
   --background: white;
-  --backgroundLight: #f9fafb;
+  --backgroundLight: hsl(211, 20%, 95%);
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
     --text: white;
     --background: black;
-    --backgroundLight: #111822;
+    --backgroundLight: hsl(211, 20%, 20%);
   }
 }
 
 html.theme--light {
   --text: black;
   --background: white;
-  --backgroundLight: #f9fafb;
+  --backgroundLight: hsl(211, 20%, 95%);
   background-color: white;
 }
+
 html.theme--dark {
   color-scheme: dark;
   background-color: black;
   --text: white;
   --background: black;
-  --backgroundLight: #111822;
+  --backgroundLight: hsl(211, 20%, 20%);
 }
+
 html.theme--dim {
   color-scheme: dark;
-  background-color: #151d28;
+  background-color: hsl(211, 28%, 12%);
   --text: white;
-  --background: #151d28;
-  --backgroundLight: #1c2736;
+  --background: hsl(211, 20%, 4%);
+  --backgroundLight: hsl(211, 20%, 10%);
 }
 
 /* Buttons and inputs have a font set by UA, so we'll have to reset that */
@@ -67,6 +70,7 @@ input:-webkit-autofill:active {
   background: var(--background);
   color: var(--text);
 }
+
 /* Force left-align date/time inputs on iOS mobile */
 input::-webkit-date-and-time-value {
   text-align: left;
@@ -76,9 +80,11 @@ input::-webkit-date-and-time-value {
 a {
   color: inherit;
 }
+
 a[role='link']:hover {
   text-decoration: underline;
 }
+
 a[role='link'][data-no-underline='1']:hover {
   text-decoration: none;
 }
@@ -87,6 +93,7 @@ a[role='link'][data-no-underline='1']:hover {
 *[data-word-wrap] {
   word-break: break-word;
 }
+
 *[data-stable-gutters] {
   scrollbar-gutter: stable both-edges;
 }
@@ -95,12 +102,15 @@ a[role='link'][data-no-underline='1']:hover {
 .ProseMirror {
   min-height: inherit;
 }
+
 .ProseMirror-dark {
   color: white;
 }
+
 .ProseMirror p {
   margin: 0;
 }
+
 .ProseMirror p.is-editor-empty:first-child::before {
   color: #8d8e96;
   content: attr(data-placeholder);
@@ -108,22 +118,27 @@ a[role='link'][data-no-underline='1']:hover {
   height: 0;
   pointer-events: none;
 }
+
 .ProseMirror .mention {
-  color: #0085ff;
+  color: rgb(75, 155, 108);
 }
+
 .ProseMirror a,
 .ProseMirror .autolink {
-  color: #0085ff;
+  color: rgb(75, 155, 108);
 }
+
 /* OLLIE: TODO -- this is not accessible */
 /* Remove focus state on inputs */
 .ProseMirror-focused {
   outline: 0;
 }
+
 textarea:focus,
 input:focus {
   outline: 0;
 }
+
 .tippy-content .items {
   width: fit-content;
 }
@@ -133,6 +148,7 @@ input:focus {
   position: relative;
   z-index: 10;
 }
+
 [data-tooltip]::after {
   content: attr(data-tooltip);
   display: none;
@@ -149,6 +165,7 @@ input:focus {
   font-size: 12px;
   z-index: 10;
 }
+
 [data-tooltip]::before {
   content: '';
   display: none;
@@ -161,6 +178,7 @@ input:focus {
   transform: translateY(100%) translateY(2px) translateX(-50%);
   z-index: 10;
 }
+
 [data-tooltip]:hover::after,
 [data-tooltip]:hover::before {
   display: block;
@@ -177,10 +195,12 @@ input:focus {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .rotate-500ms {
   position: absolute;
   inset: 0;
@@ -192,6 +212,7 @@ input:focus {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -201,6 +222,7 @@ input:focus {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -210,6 +232,7 @@ input:focus {
   from {
     transform: scale(0.95);
   }
+
   to {
     transform: scale(1);
   }
@@ -219,6 +242,7 @@ input:focus {
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -228,20 +252,22 @@ input:focus {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-100%);
   }
 }
 
 /* animating radix dropdowns requires knowing the data attributes */
-.dropdown-menu-transform-origin > * {
+.dropdown-menu-transform-origin>* {
   transform-origin: var(--radix-dropdown-menu-content-transform-origin);
 }
-.dropdown-menu-constrain-size > * {
+
+.dropdown-menu-constrain-size>* {
   max-height: var(--radix-dropdown-menu-content-available-height);
 }
 
-.force-no-clicks > *,
+.force-no-clicks>*,
 .force-no-clicks * {
   pointer-events: none !important;
 }
@@ -298,94 +324,36 @@ input[type='range'][orient='vertical']::-moz-range-thumb {
   cursor: pointer;
   border: 1px solid transparent;
 }
+
 .EmojiReactionPicker__Pressable:focus {
   outline: none;
   border-color: var(--text);
 }
+
 .EmojiReactionPicker__Pressable:hover {
   outline: none;
   transform: scale(1.1);
   border-color: transparent;
 }
+
 .EmojiReactionPicker__Pressable:not(.__selected).__disabled {
   transform: scale(1) !important;
   border-color: transparent !important;
   opacity: 0.7;
 }
-.EmojiReactionPicker__Pressable ~ button {
+
+.EmojiReactionPicker__Pressable~button {
   cursor: pointer;
   border: 1px solid transparent;
 }
-.EmojiReactionPicker__Pressable ~ button:focus {
+
+.EmojiReactionPicker__Pressable~button:focus {
   outline: none;
   border-color: var(--text);
 }
-.EmojiReactionPicker__Pressable ~ button:hover {
+
+.EmojiReactionPicker__Pressable~button:hover {
   outline: none;
   background-color: var(--backgroundLight);
   border-color: transparent;
-}
-
-/* #/components/Select/index.web.tsx */
-.radix-select-content {
-  box-shadow:
-    0px 6px 24px -10px rgba(22, 23, 24, 0.25),
-    0px 6px 12px -12px rgba(22, 23, 24, 0.15);
-  min-width: var(--radix-select-trigger-width);
-  max-height: var(--radix-select-content-available-height);
-}
-
-/*
- * #/components/Tooltip/index.web.tsx
- */
-.radix-popover-content {
-  animation-duration: 300ms;
-  animation-timing-function: cubic-bezier(0.17, 0.73, 0.14, 1);
-  will-change: transform, opacity;
-}
-.radix-popover-content[data-state='open'][data-side='top'] {
-  animation-name: radixPopoverSlideUpAndFade;
-}
-.radix-popover-content[data-state='open'][data-side='bottom'] {
-  animation-name: radixPopoverSlideDownAndFade;
-}
-@keyframes radixPopoverSlideUpAndFade {
-  from {
-    opacity: 0;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes radixPopoverSlideDownAndFade {
-  from {
-    opacity: 0;
-    transform: translateY(-2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/*
- * #/components/Toast/index.web.tsx
- */
-@keyframes toastFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes toastFadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
