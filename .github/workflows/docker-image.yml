@@ -63,4 +63,4 @@ jobs:
         run: |
           IMAGE_TAG=${{ needs.build.outputs.image_tag }}  # Use the image tag from the build job
           echo "Pushing the Docker image..."
-          docker push $IMAGE_TAG
+          docker push arkdev1/proto-prod-app:latest
