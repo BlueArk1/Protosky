@@ -46,6 +46,24 @@ jobs:
           tags: |
             type=sha,enable=true,priority=100,prefix=bskyweb-,suffix=,format=long
             type=raw,value=latest,enable=true
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'     # built-in caching for yarn (uses yarn.lock)
+
+      - name: Restore extra caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/yarn
+            .expo
+            .parcel-cache
+            .cache
+            node_modules/.cache
+          key: ${{ runner.os }}-extra-cache-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-extra-cache-
 
       - name: Build and push Docker image
         id: build-and-push
@@ -58,3 +76,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
