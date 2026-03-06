@@ -8,6 +8,7 @@ import {useEffect, useRef, useState} from 'react'
 // use a static SVG asset for web splash
 
 import {atoms as a, flatten} from '#/alf'
+import SplashLogo from './SplashLogo'
 
 const size = 100
 const ratio = 57 / 64
@@ -81,11 +82,7 @@ export function Splash({
             // to compensate for the `top: -50px` below
             {transformOrigin: 'center calc(50% - 50px)'},
           ])}>
-          <img
-            src="/assets/icons/logomark.svg"
-            alt="Protosky"
-            style={flatten([a.relative, {width: size, height: size * ratio, top: -50}])}
-          />
+          <SplashLogo />
         </div>
       )}
     </>

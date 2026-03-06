@@ -1,11 +1,5 @@
 import React, {useCallback, useEffect} from 'react'
-import {
-  AccessibilityInfo,
-  Image as RNImage,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native'
+import {AccessibilityInfo, StyleSheet, useColorScheme, View} from 'react-native'
 import Animated, {
   Easing,
   interpolate,
@@ -16,18 +10,10 @@ import Animated, {
 } from 'react-native-reanimated'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Svg, {Path, type SvgProps} from 'react-native-svg'
-import {Image} from 'expo-image'
 import * as SplashScreen from 'expo-splash-screen'
 
 import {Logotype} from '#/view/icons/Logotype'
-// @ts-ignore
-import splashImagePointer from '../assets/splash/splash.png'
-// @ts-ignore
-import darkSplashImagePointer from '../assets/splash/splash-dark.png'
-const splashImageUri = RNImage.resolveAssetSource(splashImagePointer).uri
-const darkSplashImageUri = RNImage.resolveAssetSource(
-  darkSplashImagePointer,
-).uri
+import SplashLogo from './SplashLogo'
 
 export const Logo = React.forwardRef(function LogoImpl(props: SvgProps, ref) {
   const width = 1000
@@ -59,7 +45,7 @@ export function Splash(props: React.PropsWithChildren<Props>) {
   const outroApp = useSharedValue(0)
   const outroAppOpacity = useSharedValue(0)
   const [isAnimationComplete, setIsAnimationComplete] = React.useState(false)
-  const [isImageLoaded, setIsImageLoaded] = React.useState(false)
+  const [isImageLoaded, setIsImageLoaded] = React.useState(true)
   const [isLayoutReady, setIsLayoutReady] = React.useState(false)
   const [reduceMotion, setReduceMotion] = React.useState<boolean | undefined>(
     false,
@@ -136,7 +122,7 @@ export function Splash(props: React.PropsWithChildren<Props>) {
 
   const onFinish = useCallback(() => setIsAnimationComplete(true), [])
   const onLayout = useCallback(() => setIsLayoutReady(true), [])
-  const onLoadEnd = useCallback(() => setIsImageLoaded(true), [])
+  
 
   useEffect(() => {
     if (isReady) {
@@ -191,27 +177,17 @@ export function Splash(props: React.PropsWithChildren<Props>) {
     <View style={{flex: 1}} onLayout={onLayout}>
       {!isAnimationComplete && (
         <View style={StyleSheet.absoluteFillObject}>
-          <Image
-            accessibilityIgnoresInvertColors
-            onLoadEnd={onLoadEnd}
-            source={{uri: isDarkMode ? darkSplashImageUri : splashImageUri}}
-            style={StyleSheet.absoluteFillObject}
-          />
-
           <Animated.View
-            style={[
-              bottomLogoAnimation,
-              {
-                position: 'absolute',
-                bottom: insets.bottom + 40,
-                left: 0,
-                right: 0,
-                alignItems: 'center',
-                justifyContent: 'center',
-                opacity: 0,
-              },
-            ]}>
-            <Logotype fill="#fff" width={90} />
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <SplashLogo />
           </Animated.View>
         </View>
       )}
