@@ -4,9 +4,33 @@ import {
   DEFAULT_SUBDUED_PALETTE,
 } from '@bsky.app/alf'
 
+// Brand overrides
+const BRAND_BG = '#222222'
+const BRAND_ACCENT = '#6421eb'
+
+const customDefaultPalette = {
+  ...DEFAULT_PALETTE,
+  bg: BRAND_BG,
+  background: BRAND_BG,
+  surface: '#2a2a2a',
+  text: '#ffffff',
+  primary_500: BRAND_ACCENT,
+  primary_600: '#4a17c9',
+  accent: BRAND_ACCENT,
+} as any
+
+const customSubduedPalette = {
+  ...DEFAULT_SUBDUED_PALETTE,
+  bg: BRAND_BG,
+  background: BRAND_BG,
+  surface: '#1f1f1f',
+  text: '#e6e6e6',
+  primary_500: BRAND_ACCENT,
+} as any
+
 const DEFAULT_THEMES = createThemes({
-  defaultPalette: DEFAULT_PALETTE,
-  subduedPalette: DEFAULT_SUBDUED_PALETTE,
+  defaultPalette: customDefaultPalette,
+  subduedPalette: customSubduedPalette,
 })
 
 export const themes = {
