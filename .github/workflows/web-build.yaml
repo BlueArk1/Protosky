@@ -1,20 +1,24 @@
-name: build-and-push-bskyweb-ghcr
+name: web-build 
 on:
-  push:
-    branches:
-      - main
-      - jake/bskyweb-additions
+  workflow_dispatch:
+    inputs:
+      image_name:
+        description: Image name (at ghcr.io/<owner>/<image_name>)
+        type: string
+        default: protosky-web
+      tag:
+        description: Protosky-web docker container
+        type: string
+        default: ""
 env:
   REGISTRY: ghcr.io
   USERNAME: ${{ github.actor }}
   PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-
-  # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   bskyweb-container-ghcr:
-    if: github.repository == 'bluesky-social/social-app'
+    if: github.repository == 'BlueArk1/Protosky'
     runs-on: ubuntu-latest
     permissions:
       contents: read
