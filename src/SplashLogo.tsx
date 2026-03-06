@@ -1,16 +1,12 @@
 import React from 'react'
 import {View, StyleSheet} from 'react-native'
-import {Logotype} from '#/view/icons/Logotype'
+import {Logomark} from '#/view/icons/Logomark'
 
 export function SplashLogo() {
   return (
-    <div style={flatten([a.relative, {width: size, height: size * ratio, top: -50}])}>
-      <img
-        src="/assets/icons/logomark.svg"
-        alt="Protosky"
-        style={{width: '100%', height: '100%'}}
-      />
-    </div>
+    <View style={styles.container}>
+      <Logomark fill="#fff" width={100} />
+    </View>
   )
 }
 
