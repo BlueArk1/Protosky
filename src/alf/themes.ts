@@ -15,7 +15,7 @@ const customDefaultPalette = {
   surface: '#2a2a2a',
   text: '#ffffff',
   primary_500: BRAND_ACCENT,
-  primary_600: '#4a17c9',
+  primary_600: '#5d21f5',
   accent: BRAND_ACCENT,
 } as any
 
