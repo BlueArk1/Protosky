@@ -1,11 +1,9 @@
-name: web-build 
+# Protosky - Build web docker container
+
+name: build-web
 on:
   workflow_dispatch:
     inputs:
-      image_name:
-        description: Image name (at ghcr.io/<owner>/<image_name>)
-        type: string
-        default: protosky-web
       tag:
         description: Protosky-web docker container
         type: string
@@ -17,7 +15,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  bskyweb-container-ghcr:
+  build:
     if: github.repository == 'BlueArk1/Protosky'
     runs-on: ubuntu-latest
     permissions:
