@@ -45,14 +45,14 @@ module.exports = function (_config) {
   return {
     expo: {
       version: VERSION,
-      name: 'Bluesky',
-      slug: 'bluesky',
-      scheme: 'bluesky',
-      owner: 'blueskysocial',
+      name: 'Protosky',
+      slug: 'protosky',
+      scheme: 'protosky',
+      owner: 'Ark',
       runtimeVersion: {
         policy: 'appVersion',
       },
-      icon: './assets/app-icons/ios_icon_default_next.png',
+      icon: './assets/logo.png',
       userInterfaceStyle: 'automatic',
       primaryColor: '#1083fe',
       newArchEnabled: false,
@@ -363,7 +363,7 @@ module.exports = function (_config) {
             },
 
             /**
-             * Bluesky+ core set
+             * Protosky+ core set
              */
             core_aurora: {
               ios: './assets/app-icons/ios_icon_core_aurora.png',
@@ -418,7 +418,7 @@ module.exports = function (_config) {
           'expo-contacts',
           {
             contactsPermission:
-              'I agree to allow Bluesky to use my contacts for friend discovery until I opt out.',
+              'I agree to allow Protosky to use my contacts for friend discovery until I opt out.',
           },
         ],
       ],
@@ -429,8 +429,8 @@ module.exports = function (_config) {
               ios: {
                 appExtensions: [
                   {
-                    targetName: 'Share-with-Bluesky',
-                    bundleIdentifier: 'xyz.blueskyweb.app.Share-with-Bluesky',
+                    targetName: 'Share-with-Protosky',
+                    bundleIdentifier: 'xyz.blueskyweb.app.Share-with-Protosky',
                     entitlements: {
                       'com.apple.security.application-groups': [
                         'group.app.bsky',
@@ -438,8 +438,8 @@ module.exports = function (_config) {
                     },
                   },
                   {
-                    targetName: 'BlueskyNSE',
-                    bundleIdentifier: 'xyz.blueskyweb.app.BlueskyNSE',
+                    targetName: 'ProtoskyNSE',
+                    bundleIdentifier: 'xyz.blueskyweb.app.ProtoskyNSE',
                     entitlements: {
                       'com.apple.security.application-groups': [
                         'group.app.bsky',
@@ -447,7 +447,7 @@ module.exports = function (_config) {
                     },
                   },
                   {
-                    targetName: 'BlueskyClip',
+                    targetName: 'ProtoskyClip',
                     bundleIdentifier: 'xyz.blueskyweb.app.AppClip',
                   },
                 ],
