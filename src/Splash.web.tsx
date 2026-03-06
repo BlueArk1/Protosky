@@ -5,7 +5,7 @@
  */
 
 import {useEffect, useRef, useState} from 'react'
-// import Svg, {Path} from 'react-native-svg'
+// use a static SVG asset for web splash
 
 import {atoms as a, flatten} from '#/alf'
 
