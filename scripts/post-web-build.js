@@ -46,3 +46,9 @@ function copyFiles(sourceDir, targetDir) {
 copyFiles('web-build/static/js', 'bskyweb/static/js')
 copyFiles('web-build/static/css', 'bskyweb/static/css')
 copyFiles('web-build/static/media', 'bskyweb/static/media')
+
+
+// Generate favicons from logomark
+console.log('')
+console.log('Generating favicons...')
+require('./generateFavicons.js')
