@@ -1,0 +1,24 @@
+# CODEOWNERS - Protosky Branding Protection
+# Any changes to these files require approval from @BlueArk1
+
+app.config.js @BlueArk1
+web/index.html @BlueArk1
+bskyweb/static/ @BlueArk1
+bskyweb/templates/ @BlueArk1
+.github/workflows/build-web.yaml @BlueArk1
+
+# Custom Splash & Logo Components
+src/Splash.tsx @BlueArk1
+src/Splash.web.tsx @BlueArk1
+src/SplashLogo.tsx @BlueArk1
+src/SplashLogo.web.tsx @BlueArk1
+
+# Theme & Branding Customizations
+src/alf/themes.ts @BlueArk1
+src/lib/strings/headings.ts @BlueArk1
+
+# Brand Assets
+assets/icons/logomark.svg @BlueArk1
+assets/app-icons/ @BlueArk1
+
+package.json @BlueArk1
