@@ -15,7 +15,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import {Logomark} from '#/view/icons/Logomark'
 import SplashLogo from './SplashLogo'
 
-export const Logo = React.forwardRef(function LogoImpl(props: SvgProps, ref) {
+export const Logo = forwardRef(function LogoImpl(props: SvgProps, ref) {
   const width = 1000
   const height = width * (67 / 64)
   // Render the same logomark used on web at a large size
